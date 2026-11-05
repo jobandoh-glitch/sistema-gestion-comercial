@@ -1,0 +1,38 @@
+digraph G {
+  graph [rankdir=TB, bgcolor="white", pad="0.3", nodesep="0.32", ranksep="0.50", label="Registro de ventas", labelloc=t, fontsize=19, fontname="DejaVu Sans", fontcolor="#142D40"];
+  node [fontname="DejaVu Sans", fontsize=10, shape=box, style="rounded,filled", fillcolor="#EEF3F7", color="#5A7486", margin="0.15,0.11"];
+  edge [fontname="DejaVu Sans", fontsize=9, color="#4B6575", arrowsize="0.72"];
+
+  ini [label="Inicio",shape=ellipse,fillcolor="#DCF5E9"];
+  solicitar [label="Ingresar código y cantidad",shape=parallelogram];
+  existe [label="¿Existe y está activo?",shape=diamond,fillcolor="#FFF3D6"];
+  error1 [label="Informar producto no disponible",shape=parallelogram];
+  valida [label="¿Cantidad entera positiva?",shape=diamond,fillcolor="#FFF3D6"];
+  error2 [label="Informar cantidad inválida",shape=parallelogram];
+  stock [label="¿Inventario suficiente?",shape=diamond,fillcolor="#FFF3D6"];
+  error3 [label="Informar stock insuficiente",shape=parallelogram];
+  agregar [label="Añadir producto al pedido",shape=box];
+  otro [label="¿Agregar otro?",shape=diamond,fillcolor="#FFF3D6"];
+  confirmar [label="¿Confirma la venta?",shape=diamond,fillcolor="#FFF3D6"];
+  calcular [label="Revalidar todo; calcular subtotal,\nIVA 12 %, total y número",shape=box];
+  descuento [label="Descontar existencias y registrar salidas",shape=box];
+  guardar [label="Guardar venta, stock y movimientos en JSON",shape=cylinder,fillcolor="#DDE8FF"];
+  recibo [label="Mostrar comprobante",shape=parallelogram];
+  fin [label="Fin / cancelación",shape=ellipse,fillcolor="#DCF5E9"];
+  ini -> solicitar -> existe;
+  existe -> error1 [label="No"];
+  error1 -> solicitar;
+  existe -> valida [label="Sí"];
+  valida -> error2 [label="No"];
+  error2 -> solicitar;
+  valida -> stock [label="Sí"];
+  stock -> error3 [label="No"];
+  error3 -> solicitar;
+  stock -> agregar [label="Sí"];
+  agregar -> otro;
+  otro -> solicitar [label="Sí"];
+  otro -> confirmar [label="No"];
+  confirmar -> fin [label="No"];
+  confirmar -> calcular [label="Sí"];
+  calcular -> descuento -> guardar -> recibo -> fin;
+}

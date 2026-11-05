@@ -1,0 +1,70 @@
+=== SISTEMA DE GESTIÓN COMERCIAL ===
+
+--- MENÚ PRINCIPAL ---
+1. Gestión de productos
+2. Registro de ventas
+3. Control de inventario
+4. Reportes y estadísticas
+5. Salir
+Seleccione una opción: 1
+
+--- GESTIÓN DE PRODUCTOS ---
+1. Registrar  2. Consultar por código  3. Listar
+4. Modificar  5. Desactivar  0. Menú principal
+Opción: 1
+Código: X100
+Nombre: Cable
+Categoría: Electronica
+Precio (Q): 20
+Cantidad inicial: 2
+Stock mínimo: 1
+Registrado:
+X100       Cable                  Electronica            Q20.00 Disp:    2  Mín:    1  Activo
+
+--- GESTIÓN DE PRODUCTOS ---
+1. Registrar  2. Consultar por código  3. Listar
+4. Modificar  5. Desactivar  0. Menú principal
+Opción: 1
+Código: X100
+Nombre: Repetido
+Categoría: Electronica
+Precio (Q): 20
+Cantidad inicial: 2
+Stock mínimo: 1
+Error: Ya existe un producto con ese código.
+
+--- GESTIÓN DE PRODUCTOS ---
+1. Registrar  2. Consultar por código  3. Listar
+4. Modificar  5. Desactivar  0. Menú principal
+Opción: 0
+
+--- MENÚ PRINCIPAL ---
+1. Gestión de productos
+2. Registro de ventas
+3. Control de inventario
+4. Reportes y estadísticas
+5. Salir
+Seleccione una opción: 2
+
+--- REGISTRO DE VENTAS ---
+1. Nueva venta  2. Historial  0. Menú principal
+Opción: 1
+Ingrese productos. Escriba FIN en el código para terminar.
+Código (o FIN): X100
+Cantidad: 99
+Código (o FIN): FIN
+¿Confirmar la venta? (s/n): s
+Error: Inventario insuficiente para X100: hay 2 y se piden 99.
+
+--- REGISTRO DE VENTAS ---
+1. Nueva venta  2. Historial  0. Menú principal
+Opción: 0
+
+--- MENÚ PRINCIPAL ---
+1. Gestión de productos
+2. Registro de ventas
+3. Control de inventario
+4. Reportes y estadísticas
+5. Salir
+Seleccione una opción: 5
+Gracias por utilizar el sistema. Hasta pronto.

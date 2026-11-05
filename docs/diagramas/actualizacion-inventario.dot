@@ -1,0 +1,32 @@
+digraph G {
+  graph [rankdir=TB, bgcolor="white", pad="0.3", nodesep="0.32", ranksep="0.50", label="Actualización de inventario", labelloc=t, fontsize=19, fontname="DejaVu Sans", fontcolor="#142D40"];
+  node [fontname="DejaVu Sans", fontsize=10, shape=box, style="rounded,filled", fillcolor="#EEF3F7", color="#5A7486", margin="0.15,0.11"];
+  edge [fontname="DejaVu Sans", fontsize=9, color="#4B6575", arrowsize="0.72"];
+
+  ini [label="Inicio",shape=ellipse,fillcolor="#DCF5E9"];
+  elegir [label="Elegir entrada o ajuste",shape=parallelogram];
+  datos [label="Ingresar código, cantidad y motivo",shape=parallelogram];
+  existe [label="¿Producto activo y existente?",shape=diamond,fillcolor="#FFF3D6"];
+  error1 [label="Mostrar error de código/estado",shape=parallelogram];
+  validar [label="¿Cantidad y motivo válidos?",shape=diamond,fillcolor="#FFF3D6"];
+  error2 [label="Mostrar error de entrada",shape=parallelogram];
+  tipo [label="¿Entrada?",shape=diamond,fillcolor="#FFF3D6"];
+  sumar [label="Aumentar existencias",shape=box];
+  ajustar [label="Cambiar cantidad y calcular diferencia",shape=box];
+  registrar [label="Registrar fecha, producto, tipo,\ncantidad, descripción y saldos",shape=box];
+  guardar [label="Guardar en JSON",shape=cylinder,fillcolor="#DDE8FF"];
+  mostrar [label="Mostrar nuevo saldo",shape=parallelogram];
+  fin [label="Fin",shape=ellipse,fillcolor="#DCF5E9"];
+  ini -> elegir -> datos -> existe;
+  existe -> error1 [label="No"];
+  error1 -> fin;
+  existe -> validar [label="Sí"];
+  validar -> error2 [label="No"];
+  error2 -> datos;
+  validar -> tipo [label="Sí"];
+  tipo -> sumar [label="Sí"];
+  tipo -> ajustar [label="No"];
+  sumar -> registrar;
+  ajustar -> registrar;
+  registrar -> guardar -> mostrar -> fin;
+}

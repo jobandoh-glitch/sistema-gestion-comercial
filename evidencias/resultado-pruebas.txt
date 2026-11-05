@@ -1,0 +1,22 @@
+test_01_registro_valido (test_sistema.PruebasSistema.test_01_registro_valido) ... ok
+test_02_codigo_duplicado (test_sistema.PruebasSistema.test_02_codigo_duplicado) ... ok
+test_03_valores_negativos_y_tipos_invalidos (test_sistema.PruebasSistema.test_03_valores_negativos_y_tipos_invalidos) ... ok
+test_04_consulta_inexistente_y_modificacion (test_sistema.PruebasSistema.test_04_consulta_inexistente_y_modificacion) ... ok
+test_05_desactivacion (test_sistema.PruebasSistema.test_05_desactivacion) ... ok
+test_06_venta_stock_insuficiente_no_modifica_datos (test_sistema.PruebasSistema.test_06_venta_stock_insuficiente_no_modifica_datos) ... ok
+test_07_iva_subtotal_total_y_descuento_existencias (test_sistema.PruebasSistema.test_07_iva_subtotal_total_y_descuento_existencias) ... ok
+test_08_venta_con_codigos_repetidos_suma_cantidades (test_sistema.PruebasSistema.test_08_venta_con_codigos_repetidos_suma_cantidades) ... ok
+test_09_cantidades_de_venta_invalidas (test_sistema.PruebasSistema.test_09_cantidades_de_venta_invalidas) ... ok
+test_10_entrada_y_ajuste_con_historial (test_sistema.PruebasSistema.test_10_entrada_y_ajuste_con_historial) ... ok
+test_11_alertas_stock_minimo (test_sistema.PruebasSistema.test_11_alertas_stock_minimo) ... ok
+test_12_reportes_dinamicos_y_matriz (test_sistema.PruebasSistema.test_12_reportes_dinamicos_y_matriz) ... ok
+test_13_promedio_diario_mensual_anual (test_sistema.PruebasSistema.test_13_promedio_diario_mensual_anual) ... ok
+test_14_guardar_y_leer_archivo (test_sistema.PruebasSistema.test_14_guardar_y_leer_archivo) ... ok
+test_15_archivo_invalido_sin_sobreescribir (test_sistema.PruebasSistema.test_15_archivo_invalido_sin_sobreescribir) ... ok
+test_16_menu_invalido_y_salida_controlada (test_sistema.PruebasSistema.test_16_menu_invalido_y_salida_controlada) ... ok
+test_17_calculo_iva_redondeo_centavos (test_sistema.PruebasSistema.test_17_calculo_iva_redondeo_centavos) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.715s
+
+OK

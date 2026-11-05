@@ -1,0 +1,24 @@
+digraph G {
+  graph [rankdir=TB, bgcolor="white", pad="0.3", nodesep="0.32", ranksep="0.50", label="Registro de productos", labelloc=t, fontsize=19, fontname="DejaVu Sans", fontcolor="#142D40"];
+  node [fontname="DejaVu Sans", fontsize=10, shape=box, style="rounded,filled", fillcolor="#EEF3F7", color="#5A7486", margin="0.15,0.11"];
+  edge [fontname="DejaVu Sans", fontsize=9, color="#4B6575", arrowsize="0.72"];
+
+  inicio [label="Inicio", shape=ellipse, fillcolor="#DCF5E9"];
+  entrada [label="Ingresar código, nombre, categoría,\nprecio, cantidad y stock mínimo",shape=parallelogram];
+  validar [label="¿Datos válidos?", shape=diamond, fillcolor="#FFF3D6"];
+  error [label="Mostrar error de validación", shape=parallelogram];
+  duplicado [label="¿Código registrado?",shape=diamond,fillcolor="#FFF3D6"];
+  error2 [label="Mostrar código duplicado",shape=parallelogram];
+  agregar [label="Agregar producto activo",shape=box];
+  guardar [label="Guardar estructura en JSON",shape=cylinder,fillcolor="#DDE8FF"];
+  exito [label="Mostrar producto registrado",shape=parallelogram];
+  fin [label="Fin",shape=ellipse,fillcolor="#DCF5E9"];
+  inicio -> entrada -> validar;
+  validar -> error [label="No"];
+  error -> entrada;
+  validar -> duplicado [label="Sí"];
+  duplicado -> error2 [label="Sí"];
+  error2 -> entrada;
+  duplicado -> agregar [label="No"];
+  agregar -> guardar -> exito -> fin;
+}

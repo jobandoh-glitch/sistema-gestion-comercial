@@ -1,0 +1,131 @@
+=== SISTEMA DE GESTIÓN COMERCIAL ===
+
+--- MENÚ PRINCIPAL ---
+1. Gestión de productos
+2. Registro de ventas
+3. Control de inventario
+4. Reportes y estadísticas
+5. Salir
+Seleccione una opción: 99
+Opción inválida. El sistema sigue funcionando.
+
+--- MENÚ PRINCIPAL ---
+1. Gestión de productos
+2. Registro de ventas
+3. Control de inventario
+4. Reportes y estadísticas
+5. Salir
+Seleccione una opción: 1
+
+--- GESTIÓN DE PRODUCTOS ---
+1. Registrar  2. Consultar por código  3. Listar
+4. Modificar  5. Desactivar  0. Menú principal
+Opción: 1
+Código: P100
+Nombre: Teclado USB
+Categoría: Perifericos
+Precio (Q): 100
+Cantidad inicial: 5
+Stock mínimo: 2
+Registrado:
+P100       Teclado USB            Perifericos           Q100.00 Disp:    5  Mín:    2  Activo
+
+--- GESTIÓN DE PRODUCTOS ---
+1. Registrar  2. Consultar por código  3. Listar
+4. Modificar  5. Desactivar  0. Menú principal
+Opción: 1
+Código: P200
+Nombre: Mouse
+Categoría: Perifericos
+Precio (Q): 50
+Cantidad inicial: 3
+Stock mínimo: 3
+Registrado:
+P200       Mouse                  Perifericos            Q50.00 Disp:    3  Mín:    3  Activo
+
+--- GESTIÓN DE PRODUCTOS ---
+1. Registrar  2. Consultar por código  3. Listar
+4. Modificar  5. Desactivar  0. Menú principal
+Opción: 0
+
+--- MENÚ PRINCIPAL ---
+1. Gestión de productos
+2. Registro de ventas
+3. Control de inventario
+4. Reportes y estadísticas
+5. Salir
+Seleccione una opción: 2
+
+--- REGISTRO DE VENTAS ---
+1. Nueva venta  2. Historial  0. Menú principal
+Opción: 1
+Ingrese productos. Escriba FIN en el código para terminar.
+Código (o FIN): P100
+Cantidad: 2
+Código (o FIN): P200
+Cantidad: 1
+Código (o FIN): FIN
+¿Confirmar la venta? (s/n): s
+
+Venta V0001 | 2026-10-29T19:01:18-06:00
+  P100 - Teclado USB: 2 x Q100.00 = Q200.00
+  P200 - Mouse: 1 x Q50.00 = Q50.00
+  Subtotal: Q250.00 | IVA 12%: Q30.00 | TOTAL: Q280.00
+Venta guardada e inventario actualizado.
+
+--- REGISTRO DE VENTAS ---
+1. Nueva venta  2. Historial  0. Menú principal
+Opción: 0
+
+--- MENÚ PRINCIPAL ---
+1. Gestión de productos
+2. Registro de ventas
+3. Control de inventario
+4. Reportes y estadísticas
+5. Salir
+Seleccione una opción: 4
+
+--- REPORTES Y ESTADÍSTICAS ---
+1. Productos  2. Stock mínimo  3. Historial ventas
+4. Ingresos  5. Más vendido  6. Valor inventario
+7. Promedio por período  8. Matriz de ventas  0. Menú principal
+Opción: 4
+Total de ingresos por ventas: Q280.00
+
+--- REPORTES Y ESTADÍSTICAS ---
+1. Productos  2. Stock mínimo  3. Historial ventas
+4. Ingresos  5. Más vendido  6. Valor inventario
+7. Promedio por período  8. Matriz de ventas  0. Menú principal
+Opción: 5
+Más vendido: P100 - Teclado USB (2 unidades)
+
+--- REPORTES Y ESTADÍSTICAS ---
+1. Productos  2. Stock mínimo  3. Historial ventas
+4. Ingresos  5. Más vendido  6. Valor inventario
+7. Promedio por período  8. Matriz de ventas  0. Menú principal
+Opción: 7
+Período (1=día, 2=mes, 3=año): 1
+2026-10-29: 1 ventas | Total: Q280.00 | Promedio: Q280.00
+
+--- REPORTES Y ESTADÍSTICAS ---
+1. Productos  2. Stock mínimo  3. Historial ventas
+4. Ingresos  5. Más vendido  6. Valor inventario
+7. Promedio por período  8. Matriz de ventas  0. Menú principal
+Opción: 8
+[V0001, P100, 2, Q200.00]
+[V0001, P200, 1, Q50.00]
+
+--- REPORTES Y ESTADÍSTICAS ---
+1. Productos  2. Stock mínimo  3. Historial ventas
+4. Ingresos  5. Más vendido  6. Valor inventario
+7. Promedio por período  8. Matriz de ventas  0. Menú principal
+Opción: 0
+
+--- MENÚ PRINCIPAL ---
+1. Gestión de productos
+2. Registro de ventas
+3. Control de inventario
+4. Reportes y estadísticas
+5. Salir
+Seleccione una opción: 5
+Gracias por utilizar el sistema. Hasta pronto.

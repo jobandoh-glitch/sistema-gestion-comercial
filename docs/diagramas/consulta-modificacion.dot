@@ -1,0 +1,31 @@
+digraph G {
+  graph [rankdir=TB, bgcolor="white", pad="0.3", nodesep="0.32", ranksep="0.50", label="Consulta y modificación de productos", labelloc=t, fontsize=19, fontname="DejaVu Sans", fontcolor="#142D40"];
+  node [fontname="DejaVu Sans", fontsize=10, shape=box, style="rounded,filled", fillcolor="#EEF3F7", color="#5A7486", margin="0.15,0.11"];
+  edge [fontname="DejaVu Sans", fontsize=9, color="#4B6575", arrowsize="0.72"];
+
+  ini [label="Inicio",shape=ellipse,fillcolor="#DCF5E9"];
+  input [label="Ingresar código",shape=parallelogram];
+  buscar [label="Buscar en productos",shape=box];
+  encontrado [label="¿Existe?",shape=diamond,fillcolor="#FFF3D6"];
+  no [label="Mostrar 'No encontrado'",shape=parallelogram];
+  mostrar [label="Mostrar información",shape=parallelogram];
+  desea [label="¿Desea modificar?",shape=diamond,fillcolor="#FFF3D6"];
+  modificar [label="Ingresar campos opcionales",shape=parallelogram];
+  validar [label="¿Nuevos datos válidos?",shape=diamond,fillcolor="#FFF3D6"];
+  error [label="Mostrar error",shape=parallelogram];
+  actualizar [label="Actualizar datos (no cambia código ni stock)",shape=box];
+  guardar [label="Guardar en JSON",shape=cylinder,fillcolor="#DDE8FF"];
+  fin [label="Fin",shape=ellipse,fillcolor="#DCF5E9"];
+  ini -> input -> buscar -> encontrado;
+  encontrado -> no [label="No"];
+  no -> fin;
+  encontrado -> mostrar [label="Sí"];
+  mostrar -> desea;
+  desea -> fin [label="No"];
+  desea -> modificar [label="Sí"];
+  modificar -> validar;
+  validar -> error [label="No"];
+  error -> modificar;
+  validar -> actualizar [label="Sí"];
+  actualizar -> guardar -> fin;
+}

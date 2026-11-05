@@ -1,0 +1,28 @@
+digraph G {
+  graph [rankdir=TB, bgcolor="white", pad="0.3", nodesep="0.32", ranksep="0.50", label="Generación de reportes", labelloc=t, fontsize=19, fontname="DejaVu Sans", fontcolor="#142D40"];
+  node [fontname="DejaVu Sans", fontsize=10, shape=box, style="rounded,filled", fillcolor="#EEF3F7", color="#5A7486", margin="0.15,0.11"];
+  edge [fontname="DejaVu Sans", fontsize=9, color="#4B6575", arrowsize="0.72"];
+
+  ini [label="Inicio",shape=ellipse,fillcolor="#DCF5E9"];
+  elegir [label="Seleccionar reporte",shape=parallelogram];
+  valida [label="¿Opción válida?",shape=diamond,fillcolor="#FFF3D6"];
+  error [label="Mostrar opción inválida",shape=parallelogram];
+  leer [label="Consultar datos almacenados",shape=cylinder,fillcolor="#DDE8FF"];
+  hay [label="¿Existen datos aplicables?",shape=diamond,fillcolor="#FFF3D6"];
+  vacio [label="Mostrar 'Sin datos'",shape=parallelogram];
+  calcular [label="Filtrar, sumar, contar, agrupar\ny obtener promedios / matriz",shape=box];
+  mostrar [label="Mostrar resultados calculados",shape=parallelogram];
+  repetir [label="¿Otro reporte?",shape=diamond,fillcolor="#FFF3D6"];
+  fin [label="Volver al menú principal",shape=ellipse,fillcolor="#DCF5E9"];
+  ini -> elegir -> valida;
+  valida -> error [label="No"];
+  error -> elegir;
+  valida -> leer [label="Sí"];
+  leer -> hay;
+  hay -> vacio [label="No"];
+  hay -> calcular [label="Sí"];
+  vacio -> repetir;
+  calcular -> mostrar -> repetir;
+  repetir -> elegir [label="Sí"];
+  repetir -> fin [label="No"];
+}

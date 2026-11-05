@@ -1,0 +1,24 @@
+digraph G {
+  graph [rankdir=TB, bgcolor="white", pad="0.3", nodesep="0.32", ranksep="0.50", label="Lectura de archivos", labelloc=t, fontsize=19, fontname="DejaVu Sans", fontcolor="#142D40"];
+  node [fontname="DejaVu Sans", fontsize=10, shape=box, style="rounded,filled", fillcolor="#EEF3F7", color="#5A7486", margin="0.15,0.11"];
+  edge [fontname="DejaVu Sans", fontsize=9, color="#4B6575", arrowsize="0.72"];
+
+  ini [label="Inicio del sistema",shape=ellipse,fillcolor="#DCF5E9"];
+  ruta [label="Localizar data/sistema.json",shape=box];
+  existe [label="¿Existe el archivo?",shape=diamond,fillcolor="#FFF3D6"];
+  nuevo [label="Crear estructura vacía EN MEMORIA",shape=box];
+  abrir [label="Abrir y leer archivo JSON",shape=cylinder,fillcolor="#DDE8FF"];
+  correcto [label="¿JSON y listas válidas?",shape=diamond,fillcolor="#FFF3D6"];
+  error [label="Mostrar error y no sobrescribir",shape=parallelogram];
+  cargar [label="Cargar productos, ventas y movimientos",shape=box];
+  fin [label="Menú principal / cierre",shape=ellipse,fillcolor="#DCF5E9"];
+  ini -> ruta -> existe;
+  existe -> nuevo [label="No"];
+  nuevo -> fin;
+  existe -> abrir [label="Sí"];
+  abrir -> correcto;
+  correcto -> error [label="No"];
+  error -> fin;
+  correcto -> cargar [label="Sí"];
+  cargar -> fin;
+}
