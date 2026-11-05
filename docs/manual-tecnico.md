@@ -123,3 +123,7 @@ El `.gitignore` excluye `data/sistema.json` para evitar publicar datos reales.
 Consulte `docs/analisis-de-procesos.md` y los seis diagramas en
 `docs/diagramas`. El código está distribuido según estos procesos, y los
 casos de prueba validan tanto las rutas normales como las alternativas.
+
+## Arquitectura modular
+main_gui.py administra la interfaz Tkinter. productos.py, ventas.py e inventario.py implementan las operaciones. archivos.py guarda y recupera la informacion en JSON. reportes.py calcula las estadisticas.
+
