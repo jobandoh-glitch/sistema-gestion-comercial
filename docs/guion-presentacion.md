@@ -28,3 +28,11 @@
 
 > Utilice datos ficticios. Si ya existen datos reales de una empresa,
 > haga la demostración con una copia independiente del archivo JSON.
+
+## Demostracion funcional
+1. Registrar y consultar productos.
+2. Registrar una venta y verificar el IVA.
+3. Consultar las existencias actualizadas.
+4. Mostrar alertas de stock minimo.
+5. Consultar ingresos y estadisticas.
+
