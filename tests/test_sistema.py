@@ -1,4 +1,4 @@
-"""Pruebas automáticas: ejecutar python -m unittest discover -s tests -v."""
+﻿"""Pruebas automáticas: ejecutar python -m unittest discover -s tests -v."""
 import copy
 import os
 from pathlib import Path
@@ -30,6 +30,15 @@ class PruebasSistema(unittest.TestCase):
     def test_01_registro_valido(self):
         self.assertEqual(consultar_producto(self.datos, "P001")["nombre"], "Teclado")
         self.assertEqual(len(self.datos["productos"]), 2)
+
+    def test_18_registro_inicial_en_historial(self):
+        movimientos = self.datos["movimientos"]
+        self.assertEqual(len(movimientos), 2)
+        self.assertEqual(movimientos[0]["tipo"], "ENTRADA_INICIAL")
+        self.assertEqual(movimientos[0]["codigo"], "P001")
+        self.assertEqual(movimientos[0]["cantidad"], 5)
+        self.assertEqual(movimientos[0]["existencia_anterior"], 0)
+        self.assertEqual(movimientos[0]["existencia_nueva"], 5)
 
     def test_02_codigo_duplicado(self):
         with self.assertRaisesRegex(ValueError, "Ya existe"):
@@ -74,7 +83,7 @@ class PruebasSistema(unittest.TestCase):
         self.assertEqual(venta["total"], 280)
         self.assertEqual(consultar_producto(self.datos, "P001")["cantidad"], 3)
         self.assertEqual(consultar_producto(self.datos, "P002")["cantidad"], 2)
-        self.assertEqual(len(self.datos["movimientos"]), 2)
+        self.assertEqual(len(self.datos["movimientos"]), 4)
 
     def test_08_venta_con_codigos_repetidos_suma_cantidades(self):
         venta = registrar_venta(self.datos, [{"codigo": "P001", "cantidad": 2},
@@ -94,8 +103,8 @@ class PruebasSistema(unittest.TestCase):
         registrar_entrada(self.datos, "P001", 3, "Proveedor")
         self.assertEqual(consultar_producto(self.datos, "P001")["cantidad"], 8)
         ajustar_existencias(self.datos, "P001", 7, "Conteo físico")
-        self.assertEqual(self.datos["movimientos"][1]["tipo"], "AJUSTE_SALIDA")
-        self.assertEqual(self.datos["movimientos"][1]["existencia_nueva"], 7)
+        self.assertEqual(self.datos["movimientos"][-1]["tipo"], "AJUSTE_SALIDA")
+        self.assertEqual(self.datos["movimientos"][-1]["existencia_nueva"], 7)
 
     def test_11_alertas_stock_minimo(self):
         bajos = productos_bajo_minimo(self.datos)
@@ -140,7 +149,7 @@ class PruebasSistema(unittest.TestCase):
 
     def test_16_menu_invalido_y_salida_controlada(self):
         with tempfile.TemporaryDirectory() as carpeta:
-            ambiente = dict(os.environ, SGC_DATA_FILE=str(Path(carpeta) / "datos.json"))
+            ambiente = dict(os.environ, SGC_DATA_FILE=str(Path(carpeta) / "datos.json"), PYTHONIOENCODING="utf-8")
             proceso = subprocess.run([sys.executable, str(RUTA_RAIZ / "src" / "main.py")],
                                      input="99\n5\n", capture_output=True, text=True,
                                      encoding="utf-8", env=ambiente, check=False)
@@ -157,3 +166,4 @@ class PruebasSistema(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

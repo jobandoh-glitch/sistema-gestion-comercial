@@ -28,6 +28,11 @@ def registrar_producto(datos, codigo, nombre, categoria, precio, cantidad, stock
                 "precio": precio, "cantidad": cantidad,
                 "stock_minimo": stock_minimo, "activo": True}
     datos["productos"].append(producto)
+    if cantidad > 0:
+        # Importación local: inventario.py ya utiliza funciones de productos.py.
+        from inventario import crear_movimiento
+        crear_movimiento(datos, codigo, "ENTRADA_INICIAL", cantidad,
+                         "Registro inicial del producto", 0, cantidad)
     return producto
 
 
