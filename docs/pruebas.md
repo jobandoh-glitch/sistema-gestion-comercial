@@ -50,3 +50,7 @@ propias de VS Code o Windows y capturas de GitHub en `evidencias/github/`.
 Los 17 casos definidos dieron resultado correcto en la ejecución registrada.
 Las pruebas automáticas no sustituyen una demostración manual ni validan el
 comportamiento bajo acceso concurrente, que queda fuera del alcance.
+
+## Verificacion automatica
+Se ejecutaron 18 pruebas con unittest y todas finalizaron correctamente. Comando: uv run --python 3.14 python -m unittest discover -s tests -v
+
