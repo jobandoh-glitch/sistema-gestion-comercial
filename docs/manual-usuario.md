@@ -139,3 +139,7 @@ Además, el registro de 17 pruebas está en `evidencias/resultado-pruebas.txt`.
 - El archivo de ejemplo `data/ejemplo.json` es para practicar y **no** se usa
   automáticamente; para usarlo, cópielo a `data/sistema.json` solo cuando tenga
   respaldo de la información previa.
+
+## Activar y desactivar productos
+En Productos, seleccionar un registro y utilizar el boton Activar o Desactivar. El producto conserva su codigo, precio y existencias.
+
