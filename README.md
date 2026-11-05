@@ -103,3 +103,7 @@ Revise los textos y registre las evidencias de su propia demostración.
 No suba contraseñas, credenciales ni datos personales. `data/sistema.json` está
 excluido mediante `.gitignore`. El programa está pensado para **un operador a
 la vez**; para acceso simultáneo haría falta una base de datos transaccional.
+
+## Ejecutar interfaz grafica
+Abrir una terminal en la carpeta principal y ejecutar: uv run --python 3.14 src/main_gui.py
+
