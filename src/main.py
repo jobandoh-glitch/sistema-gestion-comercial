@@ -115,15 +115,30 @@ def menu_productos(datos):
                 print("Deje en blanco lo que no desea cambiar. La cantidad se cambia en Inventario.")
                 nombre = input(f"Nombre [{producto['nombre']}]: ").strip()
                 categoria = input(f"Categoría [{producto['categoria']}]: ").strip()
-                entrada_precio = input(f"Precio [{producto['precio']}]: ").strip()
-                entrada_minimo = input(f"Stock mínimo [{producto['stock_minimo']}]: ").strip()
                 precio = None
+                while True:
+                    entrada_precio = input(f"Precio [{producto['precio']}]: ").strip()
+                    if not entrada_precio:
+                        break  # Dejar el precio anterior.
+                    try:
+                        from estructuras import precio_valido
+                        precio = precio_valido(entrada_precio)
+                        break
+                    except ValueError as error:
+                        print("Error:", error)
+
                 minimo = None
-                if entrada_precio:
-                    from estructuras import precio_valido
-                    precio = precio_valido(entrada_precio)
-                if entrada_minimo:
-                    minimo = int(entrada_minimo)
+                while True:
+                    entrada_minimo = input(f"Stock mínimo [{producto['stock_minimo']}]: ").strip()
+                    if not entrada_minimo:
+                        break  # Dejar el stock mínimo anterior.
+                    try:
+                        minimo = int(entrada_minimo)
+                        if minimo < 0:
+                            raise ValueError
+                        break
+                    except ValueError:
+                        print("Error: ingrese un número entero mayor o igual a 0.")
                 modificado = operar_y_guardar(datos, modificar_producto, codigo,
                                               nombre or None, categoria or None,
                                               precio, minimo)
